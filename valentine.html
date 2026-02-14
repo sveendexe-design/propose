@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal</title>
+    <style>
+        body {
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: #333;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #yesBtn {
+            background-color: #ff69b4;
+            color: white;
+        }
+        #noBtn {
+            background-color: #ccc;
+            color: #333;
+        }
+        #message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ikram, my love, my life, my mommy... Can you be my valentine?</h1>
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+    <div id="message"></div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const messageDiv = document.getElementById('message');
+        let noClickCount = 0;
+        const noMessages = [
+            "No? Unavailable? You're stuck with me!",
+            "Still no? Come on, Ikram!",
+            "Third time's the charm? Nope, you're mine!",
+            "Okay, fine... Yes! You were always my valentine."
+        ];
+
+        yesBtn.addEventListener('click', () => {
+            messageDiv.textContent = "Yay! Ikram, you're my valentine! ❤️";
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+        });
+
+        noBtn.addEventListener('click', () => {
+            if (noClickCount < 4) {
+                messageDiv.textContent = noMessages[noClickCount];
+                noClickCount++;
+            }
+            if (noClickCount === 4) {
+                messageDiv.textContent = "Okay, fine... Yes! You were always my valentine. ❤️";
+                yesBtn.style.display = 'none';
+                noBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
